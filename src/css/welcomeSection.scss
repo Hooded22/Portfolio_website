@@ -1,0 +1,98 @@
+.welcomeSection
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding-top: 40px;
+    padding-bottom: 90px;
+    position: relative;
+    .left
+    {
+        width: 70%;
+        h1
+        {
+            color: $color_gold;
+            margin-bottom: 20px;
+            font-weight: 400;
+            width: 100%;
+        }
+        h2
+        {
+            font-weight: 400;
+            width: 100%;
+        }
+        .buttonWrapper
+        {
+            width: 70%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-top: 50px;
+            button
+            {
+                width: 130px;
+                height: 50px;
+                box-sizing: border-box;
+                font-size: 15px;
+                outline: none;
+                cursor: pointer;
+                border: 1px solid $color_gold;
+                margin: 10px 10px;
+                &.full
+                {
+                    background-color: $color_gold;
+                    color: $color_white;
+                }
+                &.bordered
+                {
+                    background: transparent;
+                    color: black;
+                }
+            }
+        }
+    }
+    .rigth
+    {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 650px)
+{
+    .rigth
+    {
+       display: none;
+    }
+
+    .welcomeSection .left
+    {
+        width: 100%;
+        h1
+        {
+            font-size: 36px;
+        }
+        .buttonWrapper
+        {
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 340px)
+{
+    .welcomeSection 
+    {
+        padding-bottom: 20px;
+        .buttonWrapper
+        {
+            justify-content: space-around;
+            button
+            {
+                margin: 0;
+            }
+        }
+        
+    }
+}

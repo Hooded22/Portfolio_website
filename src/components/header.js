@@ -1,32 +1,54 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import Image from "./image";
+import {RiMenu5Line} from "react-icons/ri"
+
+import "../css/header.scss";
+
+const PageSections = [
+  {
+    name: "Umiejętnośći",
+    link: ""
+  },
+  {
+    name: "Projekty",
+    link: ""
+  },
+  {
+    name: "O mnie",
+    link: ""
+  },
+  {
+    name: "Kontakt",
+    link: ""
+  }
+]
 
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
+  <header className="header">
+    <div className = "leftSide">
+      <Link to="/">
+          <Image imageName="websiteLogo" className="logoImage" imageStyle={{ objectFit: "contain" }} />
+      </Link>
+    </div>
+    <div className = "rightSide">
+      <nav className="navbarTop">
+        <ul>
+          {
+            PageSections.map(item => (
+              <li><Link className="link" to={item.link}>{item.name}</Link></li>
+            ))
+          }
+        </ul>
+      </nav>
+      <div className = "mobileIconWrapper">
+          <RiMenu5Line 
+            size = {24}
+            className = "mobileMenuIcon"
+          
+          />
+      </div>
     </div>
   </header>
 )
