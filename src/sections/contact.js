@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
-import {AiOutlineMail, AiOutlinePhone} from "react-icons/ai"
 import EmailIcon from "../images/icons/Email.svg";
 import PhoneIcon from "../images/icons/Phone.svg";
 import { Link } from 'gatsby';
 import scrollTo from 'gatsby-plugin-smoothscroll';
+import emailjs from 'emailjs-com';
+import {errorNotifications, successNotifications} from "../data/notifications";
 
 
 const ContactSection = () => {
@@ -19,11 +20,42 @@ const ContactSection = () => {
         if(type === "message")
             setMessage(event.target.value);
         else if(type === "email")
-            setEmail(event.target.value)
+            setEmail(event.target.value);
     }
 
-    const handleSubmit = (event) => {
+    const sendEmail = (event) => {
         event.preventDefault();
+        const EMAIL = event.target.children[0].children[0].value;
+        const MESSAGE = event.target.children[1].children[0].value;
+
+        const validationResult = validateEmailMessage(MESSAGE,EMAIL);
+
+        if(!validationResult.result)
+        {
+            alert(validationResult.message);
+            return false;
+        }
+        else
+            emailjs.sendForm('gmail', 'portfolio_website', event.target, 'user_bcEBfS0Bds18cXA5tkfVk')
+            .then((result) => {
+                alert(validationResult.message);
+            }, (error) => {
+                console.log(error.text);
+            });
+
+        setEmail("");
+        setMessage("");
+    }
+
+    const validateEmailMessage = (message, email) => {
+        if(message.length === 0 || message.length > 10000)
+            return {result: false, message: errorNotifications.messageFormat}
+
+        const regex = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/
+        if(email.length === 0 || !regex.test(email))
+            return {result: false, message: errorNotifications.emailFormat}
+
+        return {result: true, message: successNotifications.emailSended}
     }
 
     return(
@@ -46,21 +78,30 @@ const ContactSection = () => {
                     </ul>
                 </div>
                 <div className = "formWrapper">
-                    <form>
+                    <form onSubmit = {(event) => sendEmail(event)}>
                         <label for = "email"> 
-                            <input type = "email" placeholder = "Email" id="email" className = "email" value = {email} onChange = {(event) => handleChange(event, "email")}/>
+                            <input 
+                            type = "email" 
+                            placeholder = "Email" 
+                            id="email" 
+                            name = "email" 
+                            className = "email" 
+                            value = {email} 
+                            onChange = {(event) => handleChange(event, "email")}
+                        />
                         </label>
                         <label for = "message"> 
                             <textarea 
                                 placeholder="Your message" 
                                 id = "message" 
                                 className = "message" 
-                                name = "message_html" 
-                                value = {message} 
-                                onChange = {(event) => handleChange(event, "message")}>
+                                name = "message" 
+                                value = {message}
+                                onChange = {(event) => handleChange(event, "message")}
+                            >
                             </textarea>
                         </label>
-                        <button className = "sendButton" title = "Wyślij wiadomość" type = "submit" onClick = {(event) => handleSubmit(event)}>
+                        <button className = "sendButton" title = "Wyślij wiadomość" type = "submit">
                             Send
                         </button>
                     </form> 
