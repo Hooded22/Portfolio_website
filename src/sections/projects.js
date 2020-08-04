@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 
 const Image = ({ imageName, className, imageStyle }) => {
@@ -78,8 +78,8 @@ const Project = ({title, description, image}) => {
                 <h4>{title}</h4>
                 <p>{description}</p>
                 <div className="buttonWrapper">
-                    <button className="full">Life demo</button>
-                    <button className="bordered">Zobacz projekty</button>
+                    <Link className="projectButton full">Life demo</Link>
+                    <Link className="projectButton bordered">Zobacz projekty</Link>
                 </div>
             </div>
         </div>
@@ -88,7 +88,7 @@ const Project = ({title, description, image}) => {
 
 const ProjectSection = () => {
     return (
-        <div className="projects">
+        <div className="projects" id = "Projects">
             <h3>Projekty</h3>
             <ul>
                 {projectsData.map(({ id, title, description, image }) =>

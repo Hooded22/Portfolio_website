@@ -3,7 +3,7 @@ import profileImage from "../images/profileImage.svg";
 
 const AboutMeSection = () => {
     return(
-        <div className = "aboutMe">
+        <div className = "aboutMe" id = "AboutMe">
             <h3>Kilka słów o mnie</h3>
             <div className = "container">
                 <div className = "contentWrapper">

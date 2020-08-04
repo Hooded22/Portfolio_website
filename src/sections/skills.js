@@ -5,7 +5,7 @@ import TechIcon, { icons } from "../components/TechIcons";
 
 const SkillsSection = () => {
     return (
-        <div className="skills">
+        <div className="skills" id = "Skills">
             <div className="header">
                 <h3>Umiejętności</h3>
                 <p>Znane technologie, języki i narzędzia</p>

@@ -8,6 +8,7 @@ import WelcomeSection from "../sections/welcome";
 import SkillsSection from "../sections/skills";
 import ProjectSection from "../sections/projects"
 import AboutMeSection from "../sections/aboutMe";
+import ContactSection from "../sections/contact";
 
 const IndexPage = () => (
   <Layout>
@@ -16,6 +17,7 @@ const IndexPage = () => (
     <SkillsSection/>
     <ProjectSection/>
     <AboutMeSection/>
+    <ContactSection/>
   </Layout>
 )
 

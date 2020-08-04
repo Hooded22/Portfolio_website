@@ -67,9 +67,11 @@
             width: 100%;
             display: flex;
             justify-content: space-around;
-            button
+            .projectButton
             {
                 @include button(120px, 40px, 11px);
+                text-align: center;
+                line-height: 40px;
             }
         }
     }
