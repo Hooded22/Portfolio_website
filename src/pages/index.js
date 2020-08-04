@@ -7,6 +7,7 @@ import SEO from "../components/seo"
 import WelcomeSection from "../sections/welcome";
 import SkillsSection from "../sections/skills";
 import ProjectSection from "../sections/projects"
+import AboutMeSection from "../sections/aboutMe";
 
 const IndexPage = () => (
   <Layout>
@@ -14,6 +15,7 @@ const IndexPage = () => (
     <WelcomeSection/>
     <SkillsSection/>
     <ProjectSection/>
+    <AboutMeSection/>
   </Layout>
 )
 

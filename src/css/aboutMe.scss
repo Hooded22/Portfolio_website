@@ -1,0 +1,54 @@
+.aboutMe
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    .container
+    {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        .contentWrapper
+        {
+            width: 60%;
+            display: inline-flex;
+            flex-direction: column;
+            p
+            {
+                font-size: 15px;
+                font-family: $font_content_1;
+                text-align: justify;
+                margin-bottom: 10px;
+            }
+        }
+        .imageWrapper
+        {
+            width: 40%;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+    }
+    h3
+    {
+        @include sectionHeader(30px);
+    }
+}
+
+@media screen and (max-width: 755px)
+{
+    .aboutMe
+    {
+        .container
+        {
+            flex-direction: column-reverse;
+            align-items: center;
+            .contentWrapper
+            {
+                width: 100%;
+            }
+        }
+    }
+}

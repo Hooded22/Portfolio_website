@@ -32,3 +32,12 @@ $font_content_2: 'Catamaran', sans-serif;
         opacity: 0.8;
     }
 }
+
+@mixin sectionHeader($marginBottom) {
+    font-family: $font_header_1;
+    color: $color_gold;
+    font-size: 24px;
+    margin-bottom: $marginBottom;
+    text-align: center;
+    
+}
