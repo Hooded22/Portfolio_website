@@ -17,11 +17,13 @@
             margin-bottom: 20px;
             font-weight: 400;
             width: 100%;
+            font-family: $font_header_1;
         }
         h2
         {
             font-weight: 400;
             width: 100%;
+            font-family: $font_content_1;
         }
         .buttonWrapper
         {
@@ -30,26 +32,10 @@
             flex-wrap: wrap;
             align-items: center;
             margin-top: 50px;
+            font-family: $font_button;
             button
             {
-                width: 130px;
-                height: 50px;
-                box-sizing: border-box;
-                font-size: 15px;
-                outline: none;
-                cursor: pointer;
-                border: 1px solid $color_gold;
-                margin: 10px 10px;
-                &.full
-                {
-                    background-color: $color_gold;
-                    color: $color_white;
-                }
-                &.bordered
-                {
-                    background: transparent;
-                    color: black;
-                }
+                @include button(130px, 50px, 12px);
             }
         }
     }

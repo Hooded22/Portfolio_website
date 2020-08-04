@@ -37,7 +37,7 @@ const Header = ({ siteTitle }) => (
         <ul>
           {
             PageSections.map(item => (
-              <li><Link className="link" to={item.link}>{item.name}</Link></li>
+              <li key={item.name}><Link className="link" to={item.link}>{item.name}</Link></li>
             ))
           }
         </ul>
