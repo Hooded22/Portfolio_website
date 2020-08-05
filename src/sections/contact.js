@@ -1,15 +1,17 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import EmailIcon from "../images/icons/Email.svg";
 import PhoneIcon from "../images/icons/Phone.svg";
 import { Link } from 'gatsby';
 import scrollTo from 'gatsby-plugin-smoothscroll';
 import emailjs from 'emailjs-com';
 import {errorNotifications, successNotifications} from "../data/notifications";
+import {NotificationContex} from "../components/contexts"
 
 
 const ContactSection = () => {
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
+    const [notifiConfig, setNotifiConfig] = useContext(NotificationContex);
 
     const backToTop = (event) => {
         event.preventDefault();
@@ -23,30 +25,6 @@ const ContactSection = () => {
             setEmail(event.target.value);
     }
 
-    const sendEmail = (event) => {
-        event.preventDefault();
-        const EMAIL = event.target.children[0].children[0].value;
-        const MESSAGE = event.target.children[1].children[0].value;
-
-        const validationResult = validateEmailMessage(MESSAGE,EMAIL);
-
-        if(!validationResult.result)
-        {
-            alert(validationResult.message);
-            return false;
-        }
-        else
-            emailjs.sendForm('gmail', 'portfolio_website', event.target, 'user_bcEBfS0Bds18cXA5tkfVk')
-            .then((result) => {
-                alert(validationResult.message);
-            }, (error) => {
-                console.log(error.text);
-            });
-
-        setEmail("");
-        setMessage("");
-    }
-
     const validateEmailMessage = (message, email) => {
         if(message.length === 0 || message.length > 10000)
             return {result: false, message: errorNotifications.messageFormat}
@@ -57,6 +35,41 @@ const ContactSection = () => {
 
         return {result: true, message: successNotifications.emailSended}
     }
+
+    const showNotificationBox = (success, notification) => {
+        setNotifiConfig({success, notification, visible: true});
+        setTimeout(() => {
+            setNotifiConfig({success, notification, visible: false});
+        }, 3000);
+    }
+
+    const sendEmail = (event) => {
+        event.preventDefault();
+        const EMAIL = event.target.children[0].children[0].value;
+        const MESSAGE = event.target.children[1].children[0].value;
+
+        const validationResult = validateEmailMessage(MESSAGE,EMAIL);
+
+        if(!validationResult.result)
+        {
+            showNotificationBox(validationResult.result, validationResult.message);
+            return false;
+        }
+        else
+        {
+            emailjs.sendForm('gmail', 'portfolio_website', event.target, 'user_bcEBfS0Bds18cXA5tkfVk')
+            .then((result) => {
+                showNotificationBox(true,  successNotifications.emailSended);
+            }, (error) => {
+                console.log(error.text);
+            });
+        }
+
+        setEmail("");
+        setMessage("");
+    }
+
+    
 
     return(
         <div className = "contactSection" id = "Contact">
@@ -79,7 +92,7 @@ const ContactSection = () => {
                 </div>
                 <div className = "formWrapper">
                     <form onSubmit = {(event) => sendEmail(event)}>
-                        <label for = "email"> 
+                        <label htmlFor = "email"> 
                             <input 
                             type = "email" 
                             placeholder = "Email" 
@@ -90,7 +103,7 @@ const ContactSection = () => {
                             onChange = {(event) => handleChange(event, "email")}
                         />
                         </label>
-                        <label for = "message"> 
+                        <label htmlFor = "message"> 
                             <textarea 
                                 placeholder="Your message" 
                                 id = "message" 

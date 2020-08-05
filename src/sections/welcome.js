@@ -1,5 +1,6 @@
-import React from 'react';
+import React from "react"
 import Image from '../components/image';
+
 
 const WelcomeSection = () => {
     return(

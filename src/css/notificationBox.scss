@@ -1,0 +1,40 @@
+@import "./variables.scss";
+
+.notifiBox
+{
+    min-width: 30%;
+    max-width: 30%;
+    min-height: 40px;
+    max-height: fit-content;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #fafafa;
+    box-shadow: 0px 3px 8px black;
+    border-radius: 10px;
+    opacity: 1;
+    position: fixed;
+    top: 0;
+    left: 35%;
+    z-index: 100;
+    margin: 0 auto;
+    transition: opacity .3s linear;
+    p
+    {
+        margin-bottom: 0;
+        font-family: $font_content_2;
+        font-size: 15px;
+        text-align: left;
+        max-width: 80%;
+    }
+}
+
+@media screen and (max-width: 755px)
+{
+    .notifiBox
+    {
+        min-width: 90%;
+        max-width: 90%;
+        left: 5%
+    }
+}

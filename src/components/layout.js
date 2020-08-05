@@ -5,13 +5,18 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
+import React, {useState} from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import {NotificationContex} from "./contexts";
+
 
 import Header from "./header"
 import Footer from "./footer";
+import NotificationBox from "./notificationBox";
 import "./layout.css"
+
+
 
 
 
@@ -26,8 +31,15 @@ const Layout = ({ children }) => {
     }
   `)
 
+  const [notificationConfig, setNotificationConfig] = useState({success: false, visible: false, notification: ""}) 
+
   return (
-    <>
+    <NotificationContex.Provider value = {[notificationConfig, setNotificationConfig]} >
+      <NotificationBox 
+        message = {notificationConfig.notification} 
+        visible = {notificationConfig.visible}
+        success = {notificationConfig.success} 
+      />
       <Header siteTitle={data.site.siteMetadata.title} />
       <div
         style={{
@@ -39,7 +51,7 @@ const Layout = ({ children }) => {
         <main>{children}</main>
       </div>
       <Footer/>
-    </>
+    </NotificationContex.Provider>
   )
 }
 
@@ -47,4 +59,4 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default Layout
+export default Layout;
