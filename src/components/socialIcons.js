@@ -1,6 +1,5 @@
 import React from 'react';
-import {AiFillGithub, AiFillFacebook, AiFillInstagram} from "react-icons/ai";
-import {Link} from 'gatsby';
+import { AiFillGithub, AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
 
 import "../css/socialIcons.scss";
 
@@ -9,33 +8,36 @@ const SocialIcons = (props) => {
     const icons = [
         {
             name: "GitHub",
-            link: "",
-            icon: <AiFillGithub name = "GitHub" title = "GitHub" size = {props.size || 36} color = {props.color || "black"}/>
+            link: "https://github.com/Hooded22",
+            icon: <AiFillGithub name="GitHub" title="GitHub" size={props.size || 36} color={props.color || "black"} />
         },
         {
-            name: "GitHub",
-            link: "",
-            icon: <AiFillFacebook name = "GitHub" title = "GitHub" size = {props.size || 36} color = {props.color || "black"}/>
+            name: "LinkedIn",
+            link: "https://www.linkedin.com/in/przemyslaw-sipta/",
+            icon: <AiFillLinkedin name="Linkedin" title="Linkedin" size={props.size || 36} color={props.color || "black"} />
         },
         {
-            name: "GitHub",
-            link: "",
-            icon: <AiFillInstagram name = "GitHub" title = "GitHub" size = {props.size || 36} color = {props.color || "black"}/>
+            name: "Instagram",
+            link: "https://www.instagram.com/hooded_alberchi/",
+            icon: <AiFillInstagram name="Instagram" title="Instagram" size={props.size || 36} color={props.color || "black"} />
         }
     ]
 
     const data = props.data || icons;
 
-    return(
-        <div style = {{width: props.width || "100%"}} className = "socialIconsContainer">
+    return (
+        <div style={{ width: props.width || "100%" }} className="socialIconsContainer">
             <ul>
-                { data.map(({name, link, icon}) => {
-                    return(
-                        <Icon
-                        name = {name}
-                        link = {link}
-                        icon = {icon}
-                    />
+                {data.map(({ name, link, icon }) => {
+                    return (
+                        <li key={name}>
+
+                            <Icon
+                                name={name}
+                                link={link}
+                                icon={icon}
+                            />
+                        </li>
                     )
                 })}
             </ul>
@@ -44,10 +46,10 @@ const SocialIcons = (props) => {
 }
 
 const Icon = (props) => {
-    return(
-        <Link to = {props.link} title = {props.name}>
+    return (
+        <a href = {props.link} to={props.link} title={props.name} target = "blank">
             {props.icon}
-        </Link>
+        </a>
     )
 }
 

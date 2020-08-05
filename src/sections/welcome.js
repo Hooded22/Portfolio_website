@@ -1,5 +1,7 @@
 import React from "react"
 import Image from '../components/image';
+import {Link} from 'gatsby'
+import scrollTo from 'gatsby-plugin-smoothscroll';
 
 
 const WelcomeSection = () => {
@@ -9,8 +11,8 @@ const WelcomeSection = () => {
                 <h1>Przemysław Sipta</h1>
                 <h2>Frontend developer</h2>
                 <div className = "buttonWrapper">
-                    <button className = "full">Pobierz CV</button>
-                    <button className = "bordered">Zobacz projekty</button>
+                    <a className = "button full" href = {`Przemyslaw_Sipta_CV.pdf`} target = "blank">Pobierz CV</a>
+                    <button className = "button bordered" onClick = {() => scrollTo("#Projects")}>Zobacz projekty</button>
                 </div>
             </div>
             <div className = "rigth">

@@ -33,9 +33,11 @@
             align-items: center;
             margin-top: 50px;
             font-family: $font_button;
-            button
+            .button
             {
                 @include button(130px, 50px, 12px);
+                text-align: center;
+                line-height: 50px;
             }
         }
     }

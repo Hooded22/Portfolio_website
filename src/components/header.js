@@ -62,9 +62,9 @@ const Header = ({ siteTitle }) => {
 
 
   return(
-  <header className="header">
+  <header className="header" id = "Header">
     <div className = "leftSide">
-      <Link to="/">
+      <Link to="/" title = "Strona główna">
           <Image imageName="websiteLogo" className="logoImage" imageStyle={{ objectFit: "contain" }} />
       </Link>
     </div>
@@ -73,7 +73,7 @@ const Header = ({ siteTitle }) => {
         <ul>
           {
             PageSections.map(item => (
-              <li key={item.name}><Link className="link" to={item.link} onClick = {(event) => goToSection(event, item.link)}>{item.name}</Link></li>
+              <li key={item.name}><Link className="link" to={`#${item.link}`} onClick = {(event) => goToSection(event, item.link)}>{item.name}</Link></li>
             ))
           }
         </ul>
@@ -103,7 +103,7 @@ const Header = ({ siteTitle }) => {
                 {PageSections.map(item => {
                   return(
                     <li key = {item.name}>
-                      <Link to = {item.link} className="mobileMenuItem" onClick = {(event) => goToSection(event, item.link)}>
+                      <Link to = {`#${item.link}`} className="mobileMenuItem" onClick = {(event) => goToSection(event, item.link)}>
                         {item.name}
                       </Link>
                     </li>

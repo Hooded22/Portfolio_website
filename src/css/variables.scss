@@ -1,4 +1,6 @@
-$color_gold : #D7B377;
+$color_gold : #b98732;
+$color_gold_2: #D7B377;
+$color_gold_dark: #8d6219;
 $color_white: #FAFAFA;
 $color_blue_ligth: #385F71;
 $color_blue_dark: #2B4162;
@@ -16,12 +18,12 @@ $font_content_2: 'Catamaran', sans-serif;
     font-family: $font_content_2;
     outline: none;
     cursor: pointer;
-    border: 1px solid $color_gold;
+    border: 1px solid $color_gold_dark;
     margin: 10px 10px;
     text-transform: uppercase;
     &.full
     {
-        background-color: $color_gold;
+        background-color: $color_gold_dark;
         color: $color_white;
     }
     &.bordered

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
 const Image = ({ imageName, className, imageStyle }) => {
@@ -12,27 +12,27 @@ const Image = ({ imageName, className, imageStyle }) => {
             }
           }
         },
-        Project2: file(relativePath: { eq: "Project_2.png" }) {
+        Project2: file(relativePath: { eq: "Projects/Project_2.png" }) {
           childImageSharp {
             fluid(maxWidth: 300) {
               ...GatsbyImageSharpFluid
             }
           }
         },
-        Project3: file(relativePath: { eq: "Project_3.png" }) {
+        Project3: file(relativePath: { eq: "Projects/Project_3.png" }) {
             childImageSharp {
               fluid(maxWidth: 300) {
                 ...GatsbyImageSharpFluid
               }
             }
-          },
-        Project4: file(relativePath: { eq: "Project_4.png" }) {
-            childImageSharp {
-              fluid(maxWidth: 300) {
-                ...GatsbyImageSharpFluid
-              }
+          }
+        Project4: file(relativePath: { eq: "Projects/Project_5.png" }) {
+          childImageSharp {
+            fluid(maxWidth: 300) {
+              ...GatsbyImageSharpFluid
             }
-        },
+          }
+      }
       }
     `)
 
@@ -42,31 +42,40 @@ const Image = ({ imageName, className, imageStyle }) => {
 const projectsData = [
     {
         id: 0,
-        title: "Title",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed efficitur ligula, ac bibendum nisi. Sed dignissim felis quis orci egestas malesuada. Etiam sed justo eget lorem venenatis pharetra. Suspendisse convallis purus eu tortor rutrum molestie. Ut hendrerit lorem sit amet consectetur semper. Donec vitae fermentum nun",
-        image: null
+        title: "ITense",
+        description: "Informatyczno literacki blog stworzony za pomocą Gatsby.js oraz Strapi. Głównie w celach nabycia umiejętności pracy ze wspomnianymi narzędziami jak również utworzenia miejsca na szerzenie literackiej pasji.",
+        image: null,
+        lifeLink: "https://itense.netlify.app/",
+        repoLink: "https://github.com/Hooded22/IT-in-society-blog"
     },
     {
         id: 1,
-        title: "Title",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed efficitur ligula, ac bibendum nisi. Sed dignissim felis quis orci egestas malesuada. Etiam sed justo eget lorem venenatis pharetra. Suspendisse convallis purus eu tortor rutrum molestie. Ut hendrerit lorem sit amet consectetur semper. Donec vitae fermentum nun",
-        image: null
+        title: "Clue Watson",
+        description: "Aplikacja mobilna wykonana za pomocą React Native oraz Firebase. Jest interaktywnym notatnikiem do gry w Clue oraz Cluedo. Posiada kilka prostych funckji jak dodawanie histori rozgrywi czy zapis kart poszczególnych graczy. Największy projekt w moim portfolio. Stworzona w celu poznania biblioteki react native. Do jej tworzenia wykoszystano również elementy takie backendowe takie jak firebase functions oraz kilka mniejszych bibliotek np. react-navigation.",
+        image: null,
+        lifeLink: "https://expo.io/@hooded22/cluewatson",
+        repoLink: "https://github.com/Hooded22/WatsonApp"
     },
     {
         id: 2,
-        title: "Title",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed efficitur ligula, ac bibendum nisi. Sed dignissim felis quis orci egestas malesuada. Etiam sed justo eget lorem venenatis pharetra. Suspendisse convallis purus eu tortor rutrum molestie. Ut hendrerit lorem sit amet consectetur semper. Donec vitae fermentum nun",
-        image: null
+        title: "Line Num Deleter",
+        description: "Bardzo prosta strona będąca jednocześnie aplikacją progresywną. Umożliwia usunięcie numerów linii zostających po skopiowaniu kodu np. z dokumentu PDF. Stworzona w celu nauki sposobu działania aplikacji progresywnych oraz ułatwienia sobie pracy z materiałami laboratoryjnymi na uczelni.",
+        image: null,
+        lifeLink: "https://line-number-deleter.netlify.app/",
+        repoLink: "https://github.com/Hooded22/Line_Num_Deleter"
     },
     {
         id: 3,
-        title: "Title",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed efficitur ligula, ac bibendum nisi. Sed dignissim felis quis orci egestas malesuada. Etiam sed justo eget lorem venenatis pharetra. Suspendisse convallis purus eu tortor rutrum molestie. Ut hendrerit lorem sit amet consectetur semper. Donec vitae fermentum nun",
-        image: null
+        title: "Portfolio",
+        description: "Strona wizytówka będąca jednocześnie miejscem publikacji projektów. Stworzona za pomocą Gatsby.js.",
+        image: null,
+        lifeLink: null,
+        repoLink: "https://github.com/Hooded22/Portfolio_website"
     }
+   
 ]
 
-const Project = ({title, description, image}) => {
+const Project = ({title, description, image, repoLink, lifeLink}) => {
     return (
         <div className="projectItem">
             <div className="imageWrapper">
@@ -78,8 +87,8 @@ const Project = ({title, description, image}) => {
                 <h4>{title}</h4>
                 <p>{description}</p>
                 <div className="buttonWrapper">
-                    <Link className="projectButton full">Life demo</Link>
-                    <Link className="projectButton bordered">Zobacz projekty</Link>
+                    {lifeLink != null ? <a href = {lifeLink} target="blank" className="projectButton full">Wersja life</a> : ""}
+                    {repoLink != null ? <a href = {repoLink} target="blank"  className="projectButton bordered">Zobacz kod</a> : ""}
                 </div>
             </div>
         </div>
@@ -91,12 +100,14 @@ const ProjectSection = () => {
         <div className="projects" id = "Projects">
             <h3>Projekty</h3>
             <ul>
-                {projectsData.map(({ id, title, description, image }) =>
+                {projectsData.map(({ id, title, description, image, repoLink, lifeLink }, index) =>
                     <li key={id}>
                         <Project
                             title={title}
                             description={description}
-                            image={image || `Project1`}
+                            image={image || `Project${index+1}`}
+                            repoLink = {repoLink}
+                            lifeLink = {lifeLink}
                         />
                     </li>
                 )}

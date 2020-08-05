@@ -15,7 +15,7 @@ const ContactSection = () => {
 
     const backToTop = (event) => {
         event.preventDefault();
-        scrollTo(`#welcomeSection`);
+        scrollTo(`#Header`);
     }
 
     const handleChange = (event, type) => {
@@ -92,25 +92,27 @@ const ContactSection = () => {
                 </div>
                 <div className = "formWrapper">
                     <form onSubmit = {(event) => sendEmail(event)}>
-                        <label htmlFor = "email"> 
+                        <label htmlFor = "Email" for = "Email"> 
                             <input 
                             type = "email" 
                             placeholder = "Email" 
-                            id="email" 
+                            id="Email" 
                             name = "email" 
                             className = "email" 
                             value = {email} 
                             onChange = {(event) => handleChange(event, "email")}
+                            aria-label = "Email"
                         />
                         </label>
-                        <label htmlFor = "message"> 
+                        <label htmlFor = "Message" for = "Message"> 
                             <textarea 
                                 placeholder="Your message" 
-                                id = "message" 
+                                id = "Message" 
                                 className = "message" 
                                 name = "message" 
                                 value = {message}
                                 onChange = {(event) => handleChange(event, "message")}
+                                aria-label = "Message"
                             >
                             </textarea>
                         </label>
@@ -120,7 +122,7 @@ const ContactSection = () => {
                     </form> 
                 </div>
             </div>
-            <Link className = "backToTop" to = "/" onClick = {(event) => backToTop(event)}>
+            <Link className = "backToTop" to = "#Header" onClick = {(event) => backToTop(event)}>
                 Powrót do górę
             </Link>
         </div>
