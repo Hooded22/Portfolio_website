@@ -48,6 +48,7 @@
                 list-style-type: none;
                 li
                 {
+                    margin: 0;
                     .link
                     {
                         text-decoration: none;
@@ -84,6 +85,30 @@
             .mobileMenuIcon
             {
                 margin-right: 20px;
+            }
+        }
+    }
+    .languageSelector
+    {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        button, span
+        {
+            text-decoration: none;
+            color: black;
+            font-size: 15px;
+            font-family: $font_content_2;
+            outline: none;
+            border: none;
+            background: transparent;
+        }
+        button
+        {
+            cursor: pointer;
+            &:hover
+            {
+                color: $color_gold_dark;
             }
         }
     }
@@ -156,6 +181,11 @@
     {
         display: inline-flex;
 
+    }
+    
+    .header .languageSelector
+    {
+        width: 100%;
     }
 }
 

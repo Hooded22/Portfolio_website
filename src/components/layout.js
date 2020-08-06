@@ -8,7 +8,7 @@
 import React, {useState} from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import {NotificationContex} from "./contexts";
+import {MyContext} from "./contexts";
 
 
 import Header from "./header"
@@ -31,10 +31,11 @@ const Layout = ({ children }) => {
     }
   `)
 
-  const [notificationConfig, setNotificationConfig] = useState({success: false, visible: false, notification: ""}) 
+  const [notificationConfig, setNotificationConfig] = useState({success: false, visible: false, notification: ""});
+  const [language, setLanguage] = useState("PL"); 
 
   return (
-    <NotificationContex.Provider value = {[notificationConfig, setNotificationConfig]} >
+    <MyContext.Provider value = {{notificationBox: [notificationConfig, setNotificationConfig], language: [language, setLanguage]}} >
       <NotificationBox 
         message = {notificationConfig.notification} 
         visible = {notificationConfig.visible}
@@ -51,7 +52,7 @@ const Layout = ({ children }) => {
         <main>{children}</main>
       </div>
       <Footer/>
-    </NotificationContex.Provider>
+    </MyContext.Provider>
   )
 }
 
