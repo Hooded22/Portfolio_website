@@ -8,18 +8,18 @@
   Przemysław Sipta
 </h1>
 
-## About me 
-Aktualnie student, w przyszłości frontend developer. Cześć, nazywam się Przemek. Od kilku lat starannie rozwijam się na obranej ścieżce kariery. Tworząc kolejne własne projekty szlifuje nowe umiejętności. Jestem perfekcjonistą, lubię rzeczy estetyczne i  dopracowane dlatego dbam o elegancję swojego kodu i piękno wizualnej strony aplikacji.
+## 👦 About me 
+Currently student, in the future frontend developer. Hi, I am Przemek. For few years I have developed myself with diligence on chosen career path. I creates new projects polish my skills in this way. I am a perfectionst, like estetic things and refine in every detail. That`s why I care of beautifull of my code and visual aspects of apps.
 
-## About website
+## 💻 About website 
 My business card in form of website. Made also as place to publish my projects.
 
-## What you can find here
+## 🔍 What you can find here 
 * Skils
 * Projects
 * Contact
 
-## Links
+## 🌐 Links 
 
 * [LinkedIn](https://www.linkedin.com/in/przemyslaw-sipta/)
 * [Blog](https://itense.netlify.app/)
