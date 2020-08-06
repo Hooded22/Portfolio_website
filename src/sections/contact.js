@@ -73,7 +73,7 @@ const ContactSection = () => {
             return false;
         }
         else {
-            emailjs.sendForm('gmail', 'portfolio_website', event.target, process.env.GATSBY_EMAIL_USER_KEY)
+            emailjs.sendForm('gmail', 'portfolio_website', event.target, 'user_bcEBfS0Bds18cXA5tkfVk')
                 .then((result) => {
                     showNotificationBox(true, successNotifications.emailSended);
                 }, (error) => {
