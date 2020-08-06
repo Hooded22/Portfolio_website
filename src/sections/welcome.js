@@ -2,6 +2,8 @@ import React, { useContext } from "react"
 import Image from '../components/image';
 import scrollTo from 'gatsby-plugin-smoothscroll';
 import { MyContext } from "../components/contexts";
+import CV_PL from "../data/Przemyslaw_Sipta_CV_PL.pdf";
+import CV_EN from "../data/Przemyslaw_Sipta_CV_EN.pdf";
 
 
 const WelcomeSection = () => {
@@ -17,7 +19,7 @@ const WelcomeSection = () => {
                 <div className="buttonWrapper">
                     <a
                         className="button full"
-                        href={`Przemyslaw_Sipta_CV.pdf`}
+                        href={language === "PL" ? CV_PL : CV_EN}
                         target="blank"
                         title={button_CV_content}
                     >
