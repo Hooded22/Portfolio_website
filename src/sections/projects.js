@@ -6,7 +6,7 @@ import Project from "../components/projectItem";
 
 const ProjectSection = () => {
   const language = useContext(MyContext).language[0];
-  const buttonLife = language == "PL" ? "Wersja life" : "Life demo";
+  const buttonLife = language == "PL" ? "Wersja live" : "Live demo";
   const buttonCode = language == "PL" ? "Zobacz kod" : "See code";
   return (
     <div className="projects" id="Projects">
