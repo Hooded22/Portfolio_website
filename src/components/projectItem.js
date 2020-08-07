@@ -13,8 +13,8 @@ const Project = ({ title, description, image, repoLink, lifeLink, buttonLife, bu
           <h4>{title}</h4>
           <p>{description}</p>
           <div className="buttonWrapper">
-            {lifeLink != null ? <a href={lifeLink} target="blank" title={buttonLife} className="projectButton full">{buttonLife}</a> : ""}
-            {repoLink != null ? <a href={repoLink} target="blank" title={buttonCode} className="projectButton bordered">{buttonCode}</a> : ""}
+            {lifeLink != null ? <a href={lifeLink} target="blank" title={buttonLife} className="projectButton full">{buttonLife}</a> : null}
+            {repoLink != null ? <a href={repoLink} target="blank" title={buttonCode} className="projectButton bordered">{buttonCode}</a> : null}
           </div>
         </div>
       </div>
