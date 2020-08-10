@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import profileImage from "../images/profileImage.svg";
-import { MyContext } from "../components/contexts";
+import { MyContext } from "src/components/contexts";
 
 const AboutMeSection = () => {
     const language = useContext(MyContext).language[0];

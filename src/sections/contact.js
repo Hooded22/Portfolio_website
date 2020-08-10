@@ -1,18 +1,18 @@
 import React, { useState, useContext } from 'react'
-import EmailIcon from "../images/icons/Email.svg";
-import PhoneIcon from "../images/icons/Phone.svg";
+import EmailIcon from "src/images/icons/Email.svg";
+import PhoneIcon from "src/images/icons/Phone.svg";
 import { Link } from 'gatsby';
 import scrollTo from 'gatsby-plugin-smoothscroll';
 import emailjs from 'emailjs-com';
 import { errorNotifications, successNotifications } from "../data/notifications";
-import { MyContext } from "../components/contexts"
+import { MyContext } from "components/contexts"
 
 
 const ContactSection = () => {
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
     const Context = useContext(MyContext);
-    const [notifiConfig, setNotifiConfig] = Context.notificationBox;
+    const setNotifiConfig = Context.notificationBox[1];
     const language = Context.language[0];
 
     const title = language === "PL" ? "Kontakt" : "Contact";

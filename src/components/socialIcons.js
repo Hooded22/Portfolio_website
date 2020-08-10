@@ -1,7 +1,7 @@
 import React from 'react';
 import { AiFillGithub, AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
 
-import "../css/socialIcons.scss";
+import "css/socialIcons.scss";
 
 
 const SocialIcons = (props) => {

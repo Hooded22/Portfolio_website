@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import TechIcon, { icons } from "../components/TechIcons";
-import { MyContext } from "../components/contexts"
+import TechIcon, { icons } from "components/TechIcons";
+import { MyContext } from "components/contexts"
 
 
 

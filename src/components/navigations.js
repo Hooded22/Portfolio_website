@@ -1,5 +1,5 @@
 import React from "react"
-import PageSections from "../data/pageSectionData";
+import PageSections from "data/pageSectionData";
 import LanguageSelector from "./languageSelector";
 import { RiMenu5Line, RiCloseCircleLine } from "react-icons/ri"
 import { Link } from "gatsby"

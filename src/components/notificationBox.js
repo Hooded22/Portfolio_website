@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react"
 import { AiFillCheckCircle, AiFillCloseCircle } from "react-icons/ai";
 import { MyContext } from "./contexts"
 
-import "../css/notificationBox.scss";
+import "css/notificationBox.scss";
 
 const NotificationBox = (props) => {
     const [display, setDisplay] = useState("none");

@@ -1,14 +1,14 @@
 import React from "react"
 
-import "../css/style.scss";
+import "src/css/style.scss";
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import WelcomeSection from "../sections/welcome";
-import SkillsSection from "../sections/skills";
-import ProjectSection from "../sections/projects"
-import AboutMeSection from "../sections/aboutMe";
-import ContactSection from "../sections/contact";
+import Layout from "src/components/layout"
+import SEO from "src/components/seo"
+import WelcomeSection from "src/sections/welcome";
+import SkillsSection from "src/sections/skills";
+import ProjectSection from "src/sections/projects"
+import AboutMeSection from "src/sections/aboutMe";
+import ContactSection from "src/sections/contact";
 
 const IndexPage = () => (
   <Layout>

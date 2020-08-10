@@ -5,7 +5,7 @@ import Image from "./image";
 import scrollTo from 'gatsby-plugin-smoothscroll';
 import { MyContext } from "./contexts"
 
-import "../css/header.scss";
+import "css/header.scss";
 import {DesktopMenu, MobileMenu} from "../components/navigations";
 
 

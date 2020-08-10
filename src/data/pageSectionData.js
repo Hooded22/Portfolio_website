@@ -1,6 +1,6 @@
 const PageSections = [
     {
-      name: "Umiejętnośći",
+      name: "Umiejętności",
       link: "Skills"
     },
     {
